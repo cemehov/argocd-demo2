@@ -17,6 +17,7 @@ spec:
         vmsingle:
           ingress:
             enabled: true
+            ingressClassName: nginx
             hosts:
               - vmsingle2.home.lab
         vmagent:
