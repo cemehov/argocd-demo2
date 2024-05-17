@@ -13,10 +13,16 @@ spec:
       values: |-
         global:
           domain: argocd2.home.lab
+        certificate:
+          enabled: true
         server:
           ingress:
             enabled: true
             ingressClassName: nginx
+            annotations:
+              nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+              nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+            tls: true
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd
