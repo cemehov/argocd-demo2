@@ -10,6 +10,8 @@ spec:
     targetRevision: 0.22.1
     helm:
       values: |-
+        nameOverride: "vm"
+        argocdReleaseOverride: "victoria-metrics"
         defaultRules:
           create: false
         vmsingle:
