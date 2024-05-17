@@ -10,7 +10,7 @@ spec:
       targetRevision: 0.22.1
       helm:
         valueFiles:
-        - $values/observability/victoriametrics-k8s-stack/values/*.yaml
+        - $values/observability/victoriametrics-k8s-stack/values
       chart: victoria-metrics-k8s-stack
     - repoURL: 'https://github.com/cemehov/argocd-demo2.git'
       targetRevision: HEAD
