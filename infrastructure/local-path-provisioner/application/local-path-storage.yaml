@@ -1,0 +1,34 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: local-path-provisioner
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/rancher/local-path-provisioner.git'
+    path: deploy/chart/local-path-provisioner
+    targetRevision: v0.0.26
+    helm:
+      parameters:
+        - name: storageClass.reclaimPolicy
+          value: Delete
+        - name: storageClass.defaultClass
+          value: "true"
+
+#      valuesObject:
+#        storageClass:
+#          annotations:
+#            storageclass.kubernetes.io/is-default-class: 'true'
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: local-path-provisioner
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
