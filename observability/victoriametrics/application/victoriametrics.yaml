@@ -33,11 +33,11 @@ spec:
         #       hosts:
         #         - grafana2.home.lab
         valueFiles:
-        - $values/observability/victoriametrics/values/values.yaml
-        - $values/observability/victoriametrics/values/grafana.yaml
+        - $values/observability/vm/values/values.yaml
+        - $values/observability/vm/values/grafana.yaml
       chart: victoria-metrics-k8s-stack
-    - repoURL: 'https://github.com/cemehov/argocd-demo2.git'
-      targetRevision: HEAD
+    - repoURL: 'https://github.com/cemehov/argocd-demo.git'
+      targetRevision: main
       ref: values
   destination:
     server: 'https://kubernetes.default.svc'
