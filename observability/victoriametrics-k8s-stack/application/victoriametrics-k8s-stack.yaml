@@ -32,9 +32,10 @@ spec:
               ingressClassName: nginx
               hosts:
                 - grafana2.home.lab
-        # valueFiles:
+        valueFiles:
         # - $values/observability/victoriametrics-k8s-stack/values/values.yaml
         # - $values/observability/victoriametrics-k8s-stack/values/grafana.yaml
+        - $values/observability/victoriametrics-k8s-stack/values/values.yaml
       chart: victoria-metrics-k8s-stack
     - repoURL: 'https://github.com/cemehov/argocd-demo2.git'
       targetRevision: HEAD
@@ -45,3 +46,4 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
+      - Replace=true
