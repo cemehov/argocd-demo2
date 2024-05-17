@@ -1,7 +1,7 @@
 nameOverride: "vm"
 argocdReleaseOverride: "victoria-metrics"
-defaultRules:
-  create: false
+# defaultRules:
+#   create: false
 vmsingle:
   ingress:
     enabled: true
